@@ -90,9 +90,3 @@ Practical upshot: a screen of C source can cost noticeably more tokens than a sc
 - **Byte-level fallback** means tokenization can never hit a chunk it can't represent.
 - **Code and non-English text fragment more**, costing more tokens than their length implies.
 - You **cannot reliably predict** token count by eye — run the real tokenizer when it matters.
-
----
-
-## Try it yourself (Week 1 exercise tie-in)
-
-One of your Week 1 coding exercises is: *print the raw token count for 5 strings, and predict the count before running.* Pick deliberately weird ones — a normal English sentence, a line of C, a hex string, some non-English text, and an identifier like `xzq_handle`. You'll guess the plain sentence about right and be badly wrong on the others. Being wrong on purpose is how the intuition sticks.
