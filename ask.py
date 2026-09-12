@@ -11,6 +11,10 @@ def ask(prompt: str, client: Anthropic,settings: Settings) -> str:
         messages=[{"role": "user", "content": prompt}],
         extra_body={"temperature": settings.temperature},
     )
+    # resp.content is a LIST of blocks, not a string — it can hold multiple
+    # blocks and mixed types (text now; text + tool_use from Week 2 on).
+    # Keep only text blocks, pull each .text, and concatenate with no separator.
+    # "".join(pieces): the leading "" is the glue (empty = nothing between).
     return "".join(
         block.text for block in resp.content if block.type == "text"
     )
